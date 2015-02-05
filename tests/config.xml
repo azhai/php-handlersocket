@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit stopOnFailure="false" bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="PHSTest">
+            <directory>PHSTest</directory>
+        </testsuite>
+    </testsuites>
+    <logging>
+        <log type="json" target="./logs.json"/>
+    </logging>
+    <php>
+        <var name="UNIT_NAME" value="PHSTest" />
+        <var name="DB_NAME" value="db_test" />
+        <var name="DB_TABLE" value="t_users" />
+        <var name="DB_FIELDS" value="id,username,score,modified_at,is_active" />
+    </php>
+    <!--
+CREATE TABLE `t_users` (
+  `id` int(10) unsigned NOT NULL,
+  `user_type` enum('Administrator','Retailer','Customer') NOT NULL DEFAULT 'Customer',
+  `username` varchar(20) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(40) NOT NULL DEFAULT '' COMMENT '登录密码',
+  `salt` varchar(8) NOT NULL DEFAULT '' COMMENT '加密混淆码',
+  `nickname` varchar(30) NOT NULL DEFAULT '' COMMENT '显示用昵称',
+  `mobile` varchar(15) DEFAULT NULL COMMENT '认证手机',
+  `email` varchar(50) DEFAULT NULL COMMENT '绑定邮箱',
+  `score` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '积分',
+  `created_at` timestamp NULL DEFAULT NULL COMMENT '注册时间',
+  `modified_at` timestamp NULL DEFAULT NULL COMMENT '修改时间',
+  `is_active` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启/禁用',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`) USING BTREE,
+  KEY `score` (`score`),
+  KEY `modified_at` (`modified_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户账号';
+    -->
+</phpunit>
