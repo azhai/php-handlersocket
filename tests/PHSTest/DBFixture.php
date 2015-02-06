@@ -16,10 +16,15 @@ class DBFixture extends TestCase
             self::$hs->open($GLOBALS['DB_TABLE'], $GLOBALS['DB_FIELDS']);
         }
     }
+    
+    public function tearDown()
+    {
+        $this->truncate();
+    }
 
     protected function truncate()
     {
-        self::$hs->delete(null, '>', 0);
+        self::$hs->truncate(range(1,8));
     }
 
     protected function insertRows($count = 8)

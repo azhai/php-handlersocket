@@ -30,8 +30,8 @@ CREATE TABLE `t_users` (
   `is_active` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启/禁用',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`) USING BTREE,
-  KEY `score` (`score`),
-  KEY `modified_at` (`modified_at`)
+  KEY `modified_at` (`modified_at`),
+  KEY `score` (`score`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户账号';
     -->
 </phpunit>

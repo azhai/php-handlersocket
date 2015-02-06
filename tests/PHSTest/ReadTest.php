@@ -6,7 +6,6 @@ class ReadTest extends DBFixture
 {
     public function setUp()
     {
-        $this->truncate();
         $this->insertRows();
     }
     
@@ -32,10 +31,10 @@ class ReadTest extends DBFixture
 
     public function test04Find()
     {
-        $users = self::$hs->all(null, '>=', 2, 3, 1);
+        $users = self::$hs->all(null, '>=', 1, 3, 1);
         $this->assertEquals(3, count($users));
-        $this->assertEquals('David', $users[1]['username']);
-        $this->assertEquals(75, intval($users[1]['score']));
+        $this->assertEquals('Bob', $users[1]['username']);
+        $this->assertEquals(90, intval($users[1]['score']));
     }
 
     public function test05In()

@@ -76,41 +76,54 @@ class HandlerSocket
     {
         $key = $this->index;
         $result = $this->prepare($key)->insert($newbie);
-        return ($result === 1); //是否成功
+        return $result; //是否成功
     }
     
     /**
      * 删除若干行数据
-     * @param string $key 索引名
-     * @param mixed $value_op 索引值/操作符
-     * @param mixed $value 索引值（可选，当前一个为操作符）
-     * @return int 实际删除行数
+     * @param mixed $value_key 索引值/索引名
+     * @param mixed $value 索引值（可选，当前一个为索引名）
+     * @return int/false 删除行数
      */
-    public function delete($key, $value)
+    public function delete($value)
     {
-        if (func_num_args() > 2) {
-            $op = $value;
-            $value = func_get_arg(2);
-            $value = array($op => $value);
+        if (func_num_args() > 1) {
+            $key = $value;
+            $value = func_get_arg(1);
+        } else {
+            $key = null;
         }
         return $this->prepare($key)->remove($value); //影响行数
+    }
+    
+    /**
+     * 清空数据
+     * @param mixed $id 主键值
+     *          ... $id2 其他主键值
+     * @return bool
+     */
+    public function truncate($ids)
+    {
+        $actions = array();
+        $key = null;
+        $ids = is_array($ids) ? $ids : func_get_args();
+        foreach ($ids as $id) {
+            $actions[] = array('remove', $id);
+        }
+        $result = $this->prepare($key)->multi($actions);
+        $and = create_function('$a,$b', 'return $a && $b;');
+        return array_reduce($result, $and, true);
     }
     
     /**
      * 修改若干行数据
      * @param array $changes 更新的值，向量数组，与$fields对应
      * @param string $key 索引名
-     * @param mixed $value_op 索引值/操作符
      * @param mixed $value 索引值（可选，当前一个为操作符）
-     * @return int 实际修改行数
+     * @return int/false 实际修改行数
      */
     public function update(array $changes, $key, $value)
     {
-        if (func_num_args() > 3) {
-            $op = $value;
-            $value = func_get_arg(3);
-            $value = array($op => $value);
-        }
         return $this->prepare($key)->update($value, $changes); //影响行数
     }
     

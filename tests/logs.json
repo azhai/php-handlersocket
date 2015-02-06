@@ -1,0 +1,212 @@
+{
+    "event": "suiteStart",
+    "suite": "PHSTest",
+    "tests": 15
+}{
+    "event": "suiteStart",
+    "suite": "PHSTest\\ReadTest",
+    "tests": 5
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test01Connect"
+}{
+    "event": "test",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test01Connect",
+    "status": "pass",
+    "time": 0.15825200080872,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test02GetByID"
+}{
+    "event": "test",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test02GetByID",
+    "status": "pass",
+    "time": 0.14947390556335,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test03GetByName"
+}{
+    "event": "test",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test03GetByName",
+    "status": "pass",
+    "time": 0.14942097663879,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test04Find"
+}{
+    "event": "test",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test04Find",
+    "status": "pass",
+    "time": 0.14945793151855,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test05In"
+}{
+    "event": "test",
+    "suite": "PHSTest\\ReadTest",
+    "test": "PHSTest\\ReadTest::test05In",
+    "status": "pass",
+    "time": 0.14940690994263,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "suiteStart",
+    "suite": "PHSTest\\WriteTest",
+    "tests": 10
+}{
+    "event": "suiteStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "tests": 8
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #0 (1, '', 90, '2015-02-06 12:44:43', true)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #0 (1, '', 90, '2015-02-06 12:44:43', true)",
+    "status": "pass",
+    "time": 0.030971050262451,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #1 (2, 'Alice', 100, '2015-02-06 12:44:43', false)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #1 (2, 'Alice', 100, '2015-02-06 12:44:43', false)",
+    "status": "pass",
+    "time": 0.032494068145752,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #2 (3, 'Bob', 90, '2015-02-06 12:44:43', true)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #2 (3, 'Bob', 90, '2015-02-06 12:44:43', true)",
+    "status": "pass",
+    "time": 0.03260612487793,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #3 (4, 'Candy', 100, '2015-02-06 12:44:43', false)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #3 (4, 'Candy', 100, '2015-02-06 12:44:43', false)",
+    "status": "pass",
+    "time": 0.032599925994873,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #4 (5, 'David', 75, '2015-02-06 12:44:43', true)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #4 (5, 'David', 75, '2015-02-06 12:44:43', true)",
+    "status": "pass",
+    "time": 0.032755851745605,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #5 (6, 'Emily', 80, '2015-02-06 12:44:43', true)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #5 (6, 'Emily', 80, '2015-02-06 12:44:43', true)",
+    "status": "pass",
+    "time": 0.032526016235352,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #6 (7, 'Frank', 90, '2015-02-06 12:44:43', false)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #6 (7, 'Frank', 90, '2015-02-06 12:44:43', false)",
+    "status": "pass",
+    "time": 0.032624959945679,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #7 (8, 'Grace', 100, '2015-02-06 12:44:43', false)"
+}{
+    "event": "test",
+    "suite": "PHSTest\\WriteTest::test01Insert",
+    "test": "PHSTest\\WriteTest::test01Insert with data set #7 (8, 'Grace', 100, '2015-02-06 12:44:43', false)",
+    "status": "pass",
+    "time": 0.032640933990479,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "PHSTest\\WriteTest::test02Update"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "PHSTest\\WriteTest::test02Update",
+    "status": "pass",
+    "time": 0.16626715660095,
+    "trace": [],
+    "message": "",
+    "output": ""
+}{
+    "event": "testStart",
+    "suite": "",
+    "test": "PHSTest\\WriteTest::test03Delete"
+}{
+    "event": "test",
+    "suite": "",
+    "test": "PHSTest\\WriteTest::test03Delete",
+    "status": "pass",
+    "time": 0.19937300682068,
+    "trace": [],
+    "message": "",
+    "output": ""
+}
