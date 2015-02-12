@@ -17,7 +17,7 @@ $hs->insert(array_combine($fields, $row));
 **Update**:
 ```php
 #new data, pkey or index, id or index value
-$hs->update(array(1, 'David', 80, $now, true), null, 1); 
+$hs->update([1, 'David', 80, $now, true], null, 1); 
 ```
 **Delete**:
 ```php
@@ -42,4 +42,6 @@ $ryan = $hs->all(null, '>=', 1, 3, 1);
 **Find some rows, pkey or index in value list**:
 ```php
 $ryan = $hs->in('username', 'ryan', 'jane');
+#or
+$ryan = $hs->in('username', ['ryan', 'jane']);
 ```
