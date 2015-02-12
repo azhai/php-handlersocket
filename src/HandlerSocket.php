@@ -190,6 +190,10 @@ class HandlerSocket
     {
         $actions = array();
         $values = array_slice(func_get_args(), 1);
+        //兼容第二个参数传索引值数组的用法
+        if (count($values) === 1 && is_array($values[0])) {
+            $values = $values[0];
+        }
         foreach ($values as $value) {
             $actions[] = array('find', $value);
         }
