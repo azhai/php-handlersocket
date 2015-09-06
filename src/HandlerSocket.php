@@ -99,7 +99,7 @@ class HandlerSocket
     {
         $key = $this->index;
         $result = $this->prepare($key)->insert($newbie);
-        return $result; //是否成功
+        return $result !== false; //是否成功
     }
     
     /**
