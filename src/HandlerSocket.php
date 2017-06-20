@@ -2,11 +2,11 @@
 /**
  * @name    Project HandlerSocket
  * @url     https://github.com/azhai/HandlerSocket
- * @author  Ryan Liu <azhai@126.com>
+ * @author    Ryan Liu <azhai@126.com>
  * @copyright 2015 MIT License.
  */
 
-use \HandlerSocketi;
+use HandlerSocketi;
 
 
 /**
@@ -36,6 +36,7 @@ class HandlerSocket
 {
     const HS_PORT_R = 9998;
     const HS_PORT_RW = 9999;
+    const DEFAULT_LIMIT = 2000;
     
     protected $handler = null;
     protected $query = null;
@@ -45,8 +46,8 @@ class HandlerSocket
     protected $fields = array(); //字段列表，插入或删除不需要用到
     protected $index = null;  //主键或索引，null时为主键
     
-    public function __construct($dbname, $host = '127.0.0.1', 
-            $port = 0, $read_only = false)
+    public function __construct($dbname, $host = '127.0.0.1',
+                                $port = 0, $read_only = false)
     {
         $this->dbname = $dbname;
         $this->read_only = $read_only;
@@ -59,7 +60,7 @@ class HandlerSocket
     /**
      * 选定数据表、字段和索引
      * @param string $table 数据表名
-     * @param array/string $fields 字段列表
+     * @param        array  /string $fields 字段列表
      * @return $this
      */
     public function open($table, $fields)
@@ -105,7 +106,7 @@ class HandlerSocket
     /**
      * 删除若干行数据
      * @param mixed $value_key 索引值/索引名
-     * @param mixed $value 索引值（可选，当前一个为索引名）
+     * @param mixed $value     索引值（可选，当前一个为索引名）
      * @return int/false 删除行数
      */
     public function delete($value)
@@ -122,7 +123,7 @@ class HandlerSocket
     /**
      * 清空数据
      * @param mixed $id 主键值
-     *          ... $id2 其他主键值
+     *                  ... $id2 其他主键值
      * @return bool
      */
     public function truncate($ids)
@@ -140,9 +141,9 @@ class HandlerSocket
     
     /**
      * 修改若干行数据
-     * @param array $changes 更新的值，向量数组，与$fields对应
-     * @param string $key 索引名
-     * @param mixed $value 索引值（可选，当前一个为操作符）
+     * @param array  $changes 更新的值，向量数组，与$fields对应
+     * @param string $key     索引名
+     * @param mixed  $value   索引值（可选，当前一个为操作符）
      * @return int/false 实际修改行数
      */
     public function update(array $changes, $key, $value)
@@ -153,7 +154,7 @@ class HandlerSocket
     /**
      * 获取一行数据
      * @param mixed $value_key 索引值/索引名
-     * @param mixed $value 索引值（可选，当前一个为索引名）
+     * @param mixed $value     索引值（可选，当前一个为索引名）
      * @return array/null/false
      */
     public function get($value)
@@ -174,20 +175,18 @@ class HandlerSocket
     
     /**
      * 获取多行数据
-     * @param string $key 索引名
-     * @param string $op 操作符
-     * @param mixed $value 索引值
-     * @param int $limit 限定行数
-     * @param int $offset 偏移行数
+     * @param string $key    索引名
+     * @param string $op     操作符
+     * @param mixed  $value  索引值
+     * @param int    $limit  限定行数
+     * @param int    $offset 偏移行数
      * @return array/false
      */
     public function all($key = null, $op = '>=', $value = 0,
                         $limit = 0, $offset = 0)
     {
-        $extra = array();
-        if ($limit > 0) {
-            $extra['limit'] = $limit;
-        }
+        $limit = ($limit > 0) ? $limit : self::DEFAULT_LIMIT;
+        $extra = array('limit' => $limit);
         if ($offset > 0) {
             $extra['offset'] = $offset;
         }
@@ -204,18 +203,16 @@ class HandlerSocket
     
     /**
      * 获取范围内数据
-     * @param string $key 索引名
-     * @param mixed $value 索引值
-     *          ... $value2 其他索引值
+     * @param string $key    索引名
+     * @param mixed  $values 索引值
+     *                       ... $value2 其他索引值
      * @return array/false
      */
-    public function in($key, $value)
+    public function in($key, $values)
     {
         $actions = array();
-        $values = array_slice(func_get_args(), 1);
-        //兼容第二个参数传索引值数组的用法
-        if (count($values) === 1 && is_array($values[0])) {
-            $values = $values[0];
+        if (!is_array($values)) { //兼容第二个参数传索引值数组的用法
+            $values = array_slice(func_get_args(), 1);
         }
         foreach ($values as $value) {
             $actions[] = array('find', $value);
