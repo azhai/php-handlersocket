@@ -6,7 +6,7 @@
  * @copyright 2015 MIT License.
  */
 
-use HandlerSocketi;
+use \HandlerSocketi;
 
 
 /**
