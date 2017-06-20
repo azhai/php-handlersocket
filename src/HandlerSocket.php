@@ -174,15 +174,15 @@ class HandlerSocket
     }
     
     /**
-     * 获取多行数据
+     * 获取多行数据，小于或小于等于操作，结果逆序排列
      * @param string $key    索引名
-     * @param string $op     操作符
+     * @param string $op     操作符，支持> >= < <=
      * @param mixed  $value  索引值
      * @param int    $limit  限定行数
      * @param int    $offset 偏移行数
      * @return array/false
      */
-    public function all($key = null, $op = '>=', $value = 0,
+    public function all($key = null, $op = '>=', $value = null,
                         $limit = 0, $offset = 0)
     {
         $limit = ($limit > 0) ? $limit : self::DEFAULT_LIMIT;
@@ -190,7 +190,13 @@ class HandlerSocket
         if ($offset > 0) {
             $extra['offset'] = $offset;
         }
-        $value = array($op => $value);
+        if (!is_null($value) && false !== $value) {
+            $value = array($op => $value);
+        } elseif ('<' === $op || '<=' === $op) {
+            $value = array($op => PHP_INT_MAX);
+        } else {
+            $value = array($op => 0);
+        }
         $result = $this->prepare($key)->find($value, $extra);
         if ($result === false) {
             return false; //查询失败
