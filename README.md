@@ -1,6 +1,8 @@
 # php-handlersocket
 PHP调用MySQL插件HandlerSocket，基于 [kjdev/php-ext-handlersocketi](https://github.com/kjdev/php-ext-handlersocketi)
 
+PHP 7.x 请使用 https://codeload.github.com/tony2001/php-ext-handlersocketi/zip/badoo-7.0
+
 ## Connect DB, use table and fields
 ```php
 $hs = new HandlerSocket('db_test', '127.0.0.1', 9999);
